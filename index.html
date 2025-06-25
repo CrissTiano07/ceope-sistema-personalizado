@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema CEOPE - Via Livre</title>
+    <title>Sistema CEOPE - Via Livre v1.1</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js" defer></script>
@@ -49,24 +49,6 @@
             border-radius: 10px;
             border: 1px solid #e0e0e0;
         }
-        .module-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e0e0e0;
-        }
-        .module-header h2 {
-            margin: 0;
-            color: #1a3c34;
-            font-size: 24px;
-            font-weight: 600;
-        }
-        .module-header .icon {
-            font-size: 28px;
-            color: #4CAF50;
-        }
         .tabs {
             display: flex;
             gap: 10px;
@@ -98,7 +80,25 @@
         .tab-content.active {
             display: block;
         }
-        .feature-grid {
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .module-header h2 {
+            margin: 0;
+            color: #1a3c34;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .module-header .icon {
+            font-size: 28px;
+            color: #4CAF50;
+        }
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
@@ -114,131 +114,196 @@
             margin: 0 0 10px 0;
             color: #1a3c34;
             font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .feature-card p {
             margin: 0;
             color: #666;
             font-size: 14px;
         }
-        /* Estilos do sistema original */
-        h3 {
-            color: #2e5e56;
-            margin: 30px 0 20px;
-            font-size: 20px;
-            font-weight: 500;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 5px;
-        }
-        label {
-            font-weight: 600;
-            display: block;
-            margin-top: 20px;
-            color: #333;
-            font-size: 16px;
-        }
-        label.required::after {
-            content: " *";
-            color: #d32f2f;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border: 1px solid #d0d0d0;
-            border-radius: 6px;
-            box-sizing: border-box;
-            font-size: 15px;
-            background-color: #fafafa;
-            transition: border-color 0.3s;
-            text-transform: uppercase;
-        }
-        input:focus, select:focus, textarea:focus {
-            border-color: #4CAF50;
-            outline: none;
-            background-color: #fff;
-        }
-        input:invalid:not(:focus), select:invalid:not(:focus) {
-            border-color: #d32f2f;
-        }
-        input[readonly] {
-            background-color: #e0e0e0;
-            cursor: not-allowed;
-        }
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        button {
-            padding: 12px 25px;
-            margin: 20px 10px 0 0;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 15px;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        button.secondary {
-            background-color: #2196F3;
-        }
-        button.secondary:hover {
-            background-color: #1976D2;
-        }
-        button.danger {
-            background-color: #f44336;
-        }
-        button.danger:hover {
-            background-color: #d32f2f;
-        }
-        .container {
-            border: 1px solid #e5e5e5;
+        .form-section {
+            background: #f8f9fa;
             padding: 20px;
-            margin-top: 20px;
-            background-color: #f9f9f9;
-            border-radius: 6px;
-        }
-        .section {
-            padding: 20px;
-            background-color: #fefefe;
             border-radius: 8px;
             margin-bottom: 20px;
-            border: 1px solid #ececec;
-        }
-        .row {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .row div {
-            flex: 1;
-            min-width: 200px;
-        }
-        .escala-section {
-            background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
             border-left: 4px solid #2196F3;
         }
-        .relatorio-section {
-            background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
-            border-left: 4px solid #4CAF50;
+        .form-section h3 {
+            margin: 0 0 15px 0;
+            color: #1a3c34;
+            font-size: 18px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+        .form-group input[type="date"] {
+            cursor: pointer;
+        }
+        .workers-section {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff9800;
+        }
+        .worker-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr auto;
+            gap: 10px;
+            align-items: end;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+        .btn-primary {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #45a049;
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background-color: #2196F3;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #1976D2;
+            transform: translateY(-1px);
+        }
+        .btn-warning {
+            background-color: #ff9800;
+            color: white;
+        }
+        .btn-warning:hover {
+            background-color: #f57c00;
+            transform: translateY(-1px);
+        }
+        .btn-danger {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn-danger:hover {
+            background-color: #d32f2f;
+            transform: translateY(-1px);
+        }
+        .btn-success {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-success:hover {
+            background-color: #45a049;
+            transform: translateY(-1px);
+        }
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .total-display {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+            border: 2px solid #4CAF50;
+        }
+        .total-display h3 {
+            margin: 0;
+            color: #2e7d32;
+            font-size: 20px;
+        }
+        .upload-area {
+            border: 2px dashed #4CAF50;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            background: #f8fff8;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        .upload-area:hover {
+            background: #f0fff0;
+            border-color: #45a049;
+        }
+        .upload-area.dragover {
+            background: #e8f5e8;
+            border-color: #2e7d32;
+        }
+        .file-input {
+            display: none;
+        }
+        .upload-icon {
+            font-size: 48px;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        .upload-text {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .file-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #2196F3;
         }
         @media (max-width: 768px) {
-            .main-container {
+            body {
                 padding: 15px;
             }
-            .row div { 
-                min-width: 100%; 
+            .form-grid {
+                grid-template-columns: 1fr;
             }
-            button { 
-                width: 100%; 
-                margin: 10px 0; 
-                padding: 10px; 
-                font-size: 14px; 
+            .worker-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
             }
-            .feature-grid {
+            .actions-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -246,16 +311,14 @@
 </head>
 <body>
     <div class="main-container">
-        <!-- Cabeçalho do Sistema -->
         <div class="system-header">
             <h1><i class="fas fa-clipboard-list"></i> Sistema CEOPE - Via Livre</h1>
-            <p>Geração de Escalas e Relatórios Operacionais</p>
+            <p>Geração de Escalas e Relatórios Operacionais - Versão 1.1</p>
         </div>
 
-        <!-- Navegação por Abas -->
         <div class="module-container">
             <div class="tabs">
-                <button class="tab active" onclick="showTab('escala')">
+                <button class="tab active" onclick="showTab('escalas')">
                     <i class="fas fa-calendar-alt"></i> Gerador de Escalas
                 </button>
                 <button class="tab" onclick="showTab('relatorio')">
@@ -263,14 +326,14 @@
                 </button>
             </div>
 
-            <!-- Aba: Gerador de Escalas -->
-            <div id="escala" class="tab-content active">
+            <!-- Aba Gerador de Escalas -->
+            <div id="escalas" class="tab-content active">
                 <div class="module-header">
                     <i class="fas fa-calendar-alt icon"></i>
                     <h2>Gerador de Escalas de Trabalho</h2>
                 </div>
 
-                <div class="feature-grid">
+                <div class="features-grid">
                     <div class="feature-card">
                         <h3><i class="fas fa-file-excel"></i> Planilha Excel</h3>
                         <p>Gera automaticamente planilha de escala para download</p>
@@ -284,451 +347,781 @@
                         <p>Formata texto pronto para envio no WhatsApp</p>
                     </div>
                     <div class="feature-card">
-                        <h3><i class="fas fa-save"></i> Sistema de Rascunho</h3>
-                        <p>Salva e carrega escalas em desenvolvimento</p>
+                        <h3><i class="fas fa-upload"></i> Upload Excel</h3>
+                        <p>Importa dados de planilhas existentes</p>
                     </div>
                 </div>
 
-                <div class="section escala-section">
-                    <h3>Dados da Escala</h3>
-                    <div class="row">
-                        <div>
-                            <label for="escalaData" class="required">Data da Escala:</label>
-                            <input type="date" id="escalaData" required>
+                <!-- Upload de Excel -->
+                <div class="form-section">
+                    <h3><i class="fas fa-upload"></i> Importar Planilha Excel</h3>
+                    <div class="upload-area" onclick="document.getElementById('excelFile').click()" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
                         </div>
-                        <div>
-                            <label for="escalaTurno" class="required">Turno:</label>
-                            <select id="escalaTurno" required>
+                        <div class="upload-text">
+                            Clique aqui ou arraste um arquivo Excel (.xlsx, .xls)
+                        </div>
+                        <button type="button" class="btn btn-secondary">
+                            <i class="fas fa-folder-open"></i> Selecionar Arquivo
+                        </button>
+                        <input type="file" id="excelFile" class="file-input" accept=".xlsx,.xls" onchange="handleFileSelect(event)">
+                    </div>
+                    <div id="fileInfo" class="file-info" style="display: none;">
+                        <strong>Arquivo selecionado:</strong> <span id="fileName"></span><br>
+                        <strong>Tamanho:</strong> <span id="fileSize"></span><br>
+                        <button type="button" class="btn btn-primary" onclick="processExcelFile()">
+                            <i class="fas fa-cogs"></i> Processar Arquivo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dados da Escala -->
+                <div class="form-section">
+                    <h3><i class="fas fa-info-circle"></i> Dados da Escala</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="dataEscala">Data da Escala: *</label>
+                            <input type="date" id="dataEscala" required onclick="this.showPicker()">
+                        </div>
+                        <div class="form-group">
+                            <label for="turno">Turno: *</label>
+                            <select id="turno" required>
                                 <option value="">Selecione o turno</option>
-                                <option value="MADRUGADA">Madrugada</option>
-                                <option value="MANHÃ">Manhã</option>
-                                <option value="TARDE">Tarde</option>
-                                <option value="NOITE">Noite</option>
+                                <option value="Madrugada">Madrugada</option>
+                                <option value="Manhã">Manhã</option>
+                                <option value="Tarde">Tarde</option>
+                                <option value="Noite">Noite</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div>
-                            <label for="escalaSupervisorPrincipal" class="required">Supervisores Principais (não contam):</label>
-                            <input type="text" id="escalaSupervisorPrincipal" placeholder="Digite os nomes dos supervisores principais" required>
+                        <div class="form-group">
+                            <label for="supervisoresPrincipais">Supervisores Principais (não contam): *</label>
+                            <input type="text" id="supervisoresPrincipais" value="SUPERVISOR 1, SUPERVISOR 2" readonly style="background-color: #f5f5f5; color: #666;">
                         </div>
-                        <div>
-                            <label for="escalaSupervisorAuxiliar" class="required">Supervisor Auxiliar (conta):</label>
-                            <input type="text" id="escalaSupervisorAuxiliar" placeholder="Digite o nome do supervisor auxiliar" required>
+                        <div class="form-group">
+                            <label for="supervisorAuxiliar">Supervisor Auxiliar (conta): *</label>
+                            <input type="text" id="supervisorAuxiliar" placeholder="Digite o nome do supervisor auxiliar" required>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div>
-                            <label for="escalaMonitor">Monitor da Central:</label>
-                            <input type="text" id="escalaMonitor" placeholder="Digite o nome do monitor">
+                        <div class="form-group">
+                            <label for="monitorCentral">Monitor da Central:</label>
+                            <input type="text" id="monitorCentral" placeholder="Nome do monitor">
                         </div>
-                        <div>
-                            <label for="escalaTotalTrabalhadores">Total de Trabalhadores:</label>
-                            <input type="number" id="escalaTotalTrabalhadores" readonly>
+                        <div class="form-group">
+                            <label>Total de Trabalhadores:</label>
+                            <div class="total-display">
+                                <h3 id="totalTrabalhadores">0</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="section escala-section">
-                    <h3>Distribuição de Trabalhadores</h3>
-                    <div id="trabalhadoresContainer" class="container">
-                        <!-- Trabalhadores serão adicionados dinamicamente -->
+                <!-- Trabalhadores -->
+                <div class="workers-section">
+                    <h3><i class="fas fa-users"></i> Distribuição de Trabalhadores</h3>
+                    <div id="workersContainer">
+                        <div class="worker-row">
+                            <div class="form-group">
+                                <label>Região:</label>
+                                <select class="worker-region">
+                                    <option value="">Selecione</option>
+                                    <option value="Central">Central</option>
+                                    <option value="Norte">Norte</option>
+                                    <option value="Sul">Sul</option>
+                                    <option value="Leste">Leste</option>
+                                    <option value="Oeste">Oeste</option>
+                                    <option value="Pátio">Pátio</option>
+                                    <option value="Ronda">Ronda</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Nomes dos Trabalhadores:</label>
+                                <input type="text" class="worker-names" placeholder="Digite os nomes separados por vírgula">
+                            </div>
+                            <div class="form-group">
+                                <label>Função/Posto:</label>
+                                <input type="text" class="worker-function" placeholder="Ex: Operador, Vigilante">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-danger" onclick="removeWorker(this)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <button id="btnAdicionarTrabalhador"><i class="fas fa-plus"></i> Adicionar Trabalhador</button>
-                    <button id="btnAdicionarRegiao" class="secondary"><i class="fas fa-map-marker-alt"></i> Adicionar Região</button>
+                    <button type="button" class="btn btn-primary" onclick="addWorker()">
+                        <i class="fas fa-plus"></i> Adicionar Trabalhador
+                    </button>
                 </div>
 
-                <div class="section escala-section">
-                    <h3>Ações da Escala</h3>
-                    <button id="btnSalvarEscala"><i class="fas fa-save"></i> Salvar Escala</button>
-                    <button id="btnCarregarEscala" class="secondary"><i class="fas fa-folder-open"></i> Carregar Escala</button>
-                    <button id="btnGerarExcelEscala"><i class="fas fa-file-excel"></i> Gerar Excel da Escala</button>
-                    <button id="btnGerarWhatsApp"><i class="fab fa-whatsapp"></i> Gerar Texto WhatsApp</button>
-                    <button id="btnPreviewEscala" class="secondary"><i class="fas fa-eye"></i> Pré-visualizar</button>
+                <!-- Ações -->
+                <div class="actions-grid">
+                    <button type="button" class="btn btn-success" onclick="saveEscala()">
+                        <i class="fas fa-save"></i> Salvar Escala
+                    </button>
+                    <button type="button" class="btn btn-warning" onclick="loadEscala()">
+                        <i class="fas fa-folder-open"></i> Carregar Escala
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="generateExcel()">
+                        <i class="fas fa-file-excel"></i> Gerar Excel da Escala
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="generateWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> Gerar Texto WhatsApp
+                    </button>
+                    <button type="button" class="btn btn-warning" onclick="previewEscala()">
+                        <i class="fas fa-eye"></i> Pré-visualizar
+                    </button>
                 </div>
             </div>
 
-            <!-- Aba: Relatório Operacional (código original) -->
+            <!-- Aba Relatório Operacional -->
             <div id="relatorio" class="tab-content">
                 <div class="module-header">
                     <i class="fas fa-file-alt icon"></i>
                     <h2>Relatório Operacional de Turno</h2>
                 </div>
 
-                <div class="section relatorio-section">
-                    <div class="row">
-                        <div>
-                            <label for="data" class="required">Data:</label>
-                            <input type="date" id="data" required>
+                <div class="form-section">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="dataRelatorio">Data: *</label>
+                            <input type="date" id="dataRelatorio" required onclick="this.showPicker()">
                         </div>
-                        <div>
-                            <label for="turno" class="required">Turno:</label>
-                            <select id="turno" required>
+                        <div class="form-group">
+                            <label for="turnoRelatorio">Turno: *</label>
+                            <select id="turnoRelatorio" required>
                                 <option value="">Selecione o turno</option>
-                                <option value="MADRUGADA">Madrugada</option>
-                                <option value="MANHÃ">Manhã</option>
-                                <option value="TARDE">Tarde</option>
-                                <option value="NOITE">Noite</option>
+                                <option value="Madrugada">Madrugada</option>
+                                <option value="Manhã">Manhã</option>
+                                <option value="Tarde">Tarde</option>
+                                <option value="Noite">Noite</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div>
-                            <label for="supervisor" class="required">Supervisor (Nome e Telefone):</label>
+                        <div class="form-group">
+                            <label for="supervisor">Supervisor (Nome e Telefone): *</label>
                             <input type="text" id="supervisor" placeholder="Digite o nome e telefone do supervisor" required>
                         </div>
-                        <div>
-                            <label for="totalOperadores" class="required">Total de Operadores:</label>
-                            <input type="number" id="totalOperadores" min="0" readonly>
+                        <div class="form-group">
+                            <label for="totalOperadores">Total de Operadores: *</label>
+                            <input type="number" id="totalOperadores" min="0" required>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div>
+                        <div class="form-group">
                             <label for="internos">Internos:</label>
-                            <input type="number" id="internos" min="0" readonly>
+                            <input type="number" id="internos" min="0">
                         </div>
-                        <div>
+                        <div class="form-group">
                             <label for="externos">Externos:</label>
-                            <input type="number" id="externos" min="0" readonly>
+                            <input type="number" id="externos" min="0">
                         </div>
                     </div>
                 </div>
 
-                <div class="section relatorio-section">
+                <div class="form-section">
                     <h3>Divisão das Operações</h3>
-                    <label for="central">01. Central:</label>
-                    <input type="text" id="central" placeholder="Digite os nomes dos operadores" list="operadoresList">
-                    <datalist id="operadoresList"></datalist>
-                    
-                    <label>02. Postos Fixos:</label>
-                    <div id="postosFixosContainer" class="container"></div>
-                    <button id="btnPostosFixos"><i class="fas fa-plus"></i> Adicionar Posto Fixo</button>
-                    
-                    <label>03. Equipe Volante:</label>
-                    <div id="equipeVolanteContainer" class="container"></div>
-                    <button id="btnEquipeVolante"><i class="fas fa-plus"></i> Adicionar Equipe Volante</button>
-
-                    <label>04. Missão ou Evento:</label>
-                    <div id="missaoContainer" class="container"></div>
-                    <button id="btnMissao"><i class="fas fa-plus"></i> Adicionar Missão/Evento</button>
-
-                    <label>05. Supervisão:</label>
-                    <div id="supervisaoContainer" class="container"></div>
-                    <button id="btnAdicionarSupervisao"><i class="fas fa-plus"></i> Adicionar Supervisão</button>
-
-                    <label for="observacoes">06. Observações:</label>
-                    <textarea id="observacoes" rows="3" placeholder="Digite observações gerais"></textarea>
-
-                    <div id="errorMessage" style="color: #d32f2f; font-size: 14px; margin-top: 15px; display: none; font-weight: 500;">
-                        Por favor, preencha todos os campos obrigatórios marcados com *.
+                    <div class="form-group">
+                        <label for="central">01. Central:</label>
+                        <textarea id="central" rows="3" placeholder="Digite os nomes dos operadores"></textarea>
                     </div>
-                    
-                    <button id="btnSalvarRascunho"><i class="fas fa-save"></i> Salvar Rascunho</button>
-                    <button id="btnCarregarRascunho" class="secondary"><i class="fas fa-folder-open"></i> Carregar Rascunho</button>
-                    <button id="btnPreVisualizar" class="secondary"><i class="fas fa-eye"></i> Pré-visualizar</button>
-                    <button id="gerarPdfBtn"><i class="fas fa-file-pdf"></i> Gerar PDF</button>
-                    <button id="gerarExcelBtn"><i class="fas fa-file-excel"></i> Exportar para Excel</button>
+                    <div class="form-group">
+                        <label for="postosFixos">02. Postos Fixos:</label>
+                        <textarea id="postosFixos" rows="3" placeholder="Digite os postos e operadores"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="equipesVolantes">03. Equipes Volantes:</label>
+                        <textarea id="equipesVolantes" rows="3" placeholder="Digite as equipes volantes"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="observacoes">Observações:</label>
+                        <textarea id="observacoes" rows="4" placeholder="Digite observações adicionais"></textarea>
+                    </div>
+                </div>
+
+                <div class="actions-grid">
+                    <button type="button" class="btn btn-success" onclick="salvarRascunho()">
+                        <i class="fas fa-save"></i> Salvar Rascunho
+                    </button>
+                    <button type="button" class="btn btn-warning" onclick="carregarRascunho()">
+                        <i class="fas fa-folder-open"></i> Carregar Rascunho
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="gerarPDF()">
+                        <i class="fas fa-file-pdf"></i> Gerar PDF
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="gerarTextoWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> Gerar Texto WhatsApp
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Variáveis globais
-        let regioes = JSON.parse(localStorage.getItem("regioesPersonalizadas")) || [
-            "ALDEOTA", "CENTRO", "CIDADE DOS FUNCIONÁRIOS", "MARAPONGA", "PAPICU", "PARANGABA"
-        ].sort((a, b) => a.localeCompare(b));
-        
-        let operadores = JSON.parse(localStorage.getItem("operadoresPersonalizados")) || [
-            "ACÁCIO", "ADAMS", "ANCHIETA DA SILVA", "BACELAR", "BRUNO", "BRUNO ALBUQUERQUE", "CALACIO",
-            "CARLOS ALBERTO", "CARLOS ALEX", "CARLOS EDUARDO", "CRISTIANO", "DANRLEI", "DAVID", "DELUCAS",
-            "DENIS", "EDILBERTO", "ELIZIÁRIO", "EMANUEL PINHEIRO", "EMERSON", "ERICK", "FABRÍCIO", "FELIPE",
-            "FRANCISCO", "FRANCISCO THIAGO", "GABRIEL RIBEIRO", "GENILSON", "GOMES", "HUDSON", "ITALO",
-            "JAIRO", "JOAN", "JOÃO LUCAS", "JOÃO PAULO", "JORGE LUIS", "JOSÉ AIRTON", "JOSÉ ARY",
-            "JOSÉ MOREIRA", "JOSE RONALDO", "JULIO CESAR", "LEONI", "LUCAS CAVALCANTE", "MAIA", "MAICON",
-            "MÁRCIO", "MARCELO ARAÚJO", "MARLON", "MIGUEL", "MIZAEL", "NEGREIROS", "NEIRTON", "NONATO",
-            "ONILDO", "PAULO SÉRGIO", "PAULO TELES", "PEDRO LESSA", "PEDRO MARQUES", "ROBSON", "RONALDO",
-            "SALES", "SANTANA", "SIDNEY", "THAYANNE", "THIAGO CÉSAR", "THIAGO NOGUEIRA", "UIRAQUÊ",
-            "WESLEY SILVA", "ZAMISK"
-        ].sort((a, b) => a.localeCompare(b));
+        let selectedFile = null;
 
-        // Função para alternar entre abas
+        // Navegação entre abas
         function showTab(tabName) {
-            // Esconder todas as abas
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
             });
             document.querySelectorAll('.tab').forEach(tab => {
                 tab.classList.remove('active');
             });
             
-            // Mostrar aba selecionada
             document.getElementById(tabName).classList.add('active');
             event.target.classList.add('active');
         }
 
-        // Função para contar trabalhadores na escala (contagem inteligente)
-        function contarTrabalhadores() {
-            const supervisoresPrincipais = document.getElementById("escalaSupervisorPrincipal").value;
-            const supervisorAuxiliar = document.getElementById("escalaSupervisorAuxiliar").value;
+        // Upload de Excel - Drag and Drop
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('dragover');
+        }
+
+        function handleDragLeave(e) {
+            e.currentTarget.classList.remove('dragover');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('dragover');
             
-            let totalTrabalhadores = 0;
-            
-            // Contar supervisor auxiliar (conta)
-            if (supervisorAuxiliar.trim()) {
-                totalTrabalhadores += contarNomes(supervisorAuxiliar);
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
             }
-            
-            // Contar todos os trabalhadores adicionados
-            const trabalhadoresInputs = document.querySelectorAll('#trabalhadoresContainer input[placeholder="Digite os nomes dos trabalhadores"]');
-            trabalhadoresInputs.forEach(input => {
-                totalTrabalhadores += contarNomes(input.value);
-            });
-            
-            // NÃO contar supervisores principais (conforme especificação)
-            
-            document.getElementById("escalaTotalTrabalhadores").value = totalTrabalhadores;
-            return totalTrabalhadores;
         }
 
-        // Função auxiliar para contar nomes
-        function contarNomes(texto) {
-            if (!texto.trim()) return 0;
-            const nomes = texto.split(',')
-                .map(nome => nome.trim())
-                .filter(nome => nome.length > 0);
-            return nomes.length;
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
         }
 
-        // Função para adicionar trabalhador
-        function adicionarTrabalhador() {
-            const container = document.getElementById("trabalhadoresContainer");
-            const div = document.createElement("div");
-            div.className = "row";
-            div.style.marginBottom = "15px";
-            div.innerHTML = `
-                <div style="flex: 1;">
-                    <select class="regiao-select">
-                        <option value="">Selecione a região</option>
-                        ${regioes.map(r => `<option value="${r}">${r}</option>`).join("")}
+        function handleFile(file) {
+            if (!file.name.match(/\.(xlsx|xls)$/)) {
+                alert('Por favor, selecione um arquivo Excel (.xlsx ou .xls)');
+                return;
+            }
+
+            selectedFile = file;
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('fileSize').textContent = formatFileSize(file.size);
+            document.getElementById('fileInfo').style.display = 'block';
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function processExcelFile() {
+            if (!selectedFile) {
+                alert('Nenhum arquivo selecionado');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, {type: 'array'});
+                    const firstSheetName = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[firstSheetName];
+                    const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1});
+                    
+                    // Processar dados do Excel
+                    processExcelData(jsonData);
+                    alert('Arquivo processado com sucesso!');
+                } catch (error) {
+                    alert('Erro ao processar arquivo: ' + error.message);
+                }
+            };
+            reader.readAsArrayBuffer(selectedFile);
+        }
+
+        function processExcelData(data) {
+            // Limpar trabalhadores existentes
+            const container = document.getElementById('workersContainer');
+            container.innerHTML = '';
+
+            // Processar dados e criar trabalhadores
+            for (let i = 1; i < data.length; i++) { // Pular cabeçalho
+                const row = data[i];
+                if (row && row.length > 0) {
+                    addWorkerFromData(row[0] || '', row[1] || '', row[2] || '');
+                }
+            }
+
+            updateTotal();
+        }
+
+        function addWorkerFromData(region, names, func) {
+            const container = document.getElementById('workersContainer');
+            const workerRow = document.createElement('div');
+            workerRow.className = 'worker-row';
+            workerRow.innerHTML = `
+                <div class="form-group">
+                    <label>Região:</label>
+                    <select class="worker-region">
+                        <option value="">Selecione</option>
+                        <option value="Central" ${region === 'Central' ? 'selected' : ''}>Central</option>
+                        <option value="Norte" ${region === 'Norte' ? 'selected' : ''}>Norte</option>
+                        <option value="Sul" ${region === 'Sul' ? 'selected' : ''}>Sul</option>
+                        <option value="Leste" ${region === 'Leste' ? 'selected' : ''}>Leste</option>
+                        <option value="Oeste" ${region === 'Oeste' ? 'selected' : ''}>Oeste</option>
+                        <option value="Pátio" ${region === 'Pátio' ? 'selected' : ''}>Pátio</option>
+                        <option value="Ronda" ${region === 'Ronda' ? 'selected' : ''}>Ronda</option>
                     </select>
                 </div>
-                <div style="flex: 2;">
-                    <input type="text" placeholder="Digite os nomes dos trabalhadores" onchange="contarTrabalhadores()">
+                <div class="form-group">
+                    <label>Nomes dos Trabalhadores:</label>
+                    <input type="text" class="worker-names" placeholder="Digite os nomes separados por vírgula" value="${names}" onchange="updateTotal()">
                 </div>
-                <div style="flex: 1;">
-                    <input type="text" placeholder="Função/Posto">
+                <div class="form-group">
+                    <label>Função/Posto:</label>
+                    <input type="text" class="worker-function" placeholder="Ex: Operador, Vigilante" value="${func}">
                 </div>
-                <div style="flex: 0 0 auto;">
-                    <button class="danger" onclick="this.parentElement.parentElement.remove(); contarTrabalhadores();">
+                <div class="form-group">
+                    <button type="button" class="btn btn-danger" onclick="removeWorker(this)">
                         <i class="fas fa-trash"></i>
                     </button>
                 </div>
             `;
-            container.appendChild(div);
-            contarTrabalhadores();
+            container.appendChild(workerRow);
         }
 
-        // Função para gerar Excel da escala
-        function gerarExcelEscala() {
-            if (!document.getElementById("escalaData").value || !document.getElementById("escalaTurno").value) {
-                alert("Por favor, preencha a data e o turno da escala.");
-                return;
-            }
+        // Gerenciamento de trabalhadores
+        function addWorker() {
+            const container = document.getElementById('workersContainer');
+            const workerRow = document.createElement('div');
+            workerRow.className = 'worker-row';
+            workerRow.innerHTML = `
+                <div class="form-group">
+                    <label>Região:</label>
+                    <select class="worker-region">
+                        <option value="">Selecione</option>
+                        <option value="Central">Central</option>
+                        <option value="Norte">Norte</option>
+                        <option value="Sul">Sul</option>
+                        <option value="Leste">Leste</option>
+                        <option value="Oeste">Oeste</option>
+                        <option value="Pátio">Pátio</option>
+                        <option value="Ronda">Ronda</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nomes dos Trabalhadores:</label>
+                    <input type="text" class="worker-names" placeholder="Digite os nomes separados por vírgula" onchange="updateTotal()">
+                </div>
+                <div class="form-group">
+                    <label>Função/Posto:</label>
+                    <input type="text" class="worker-function" placeholder="Ex: Operador, Vigilante">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-danger" onclick="removeWorker(this)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+            container.appendChild(workerRow);
+            updateTotal();
+        }
 
-            const data = document.getElementById("escalaData").value;
-            const turno = document.getElementById("escalaTurno").value;
-            const supervisoresPrincipais = document.getElementById("escalaSupervisorPrincipal").value;
-            const supervisorAuxiliar = document.getElementById("escalaSupervisorAuxiliar").value;
-            const monitor = document.getElementById("escalaMonitor").value;
-            const total = document.getElementById("escalaTotalTrabalhadores").value;
+        function removeWorker(button) {
+            button.closest('.worker-row').remove();
+            updateTotal();
+        }
 
-            // Criar dados da planilha
-            const dadosEscala = [];
+        // Atualizar total de trabalhadores
+        function updateTotal() {
+            let total = 0;
             
-            // Cabeçalho
-            dadosEscala.push([`ESCALA DE TRABALHO - ${turno}`, "", "", ""]);
-            dadosEscala.push([`Data: ${formatarData(data)}`, "", "", ""]);
-            dadosEscala.push(["", "", "", ""]);
-            
-            // Supervisores principais (não contam)
-            dadosEscala.push(["SUPERVISORES:", supervisoresPrincipais, "", ""]);
-            dadosEscala.push(["", "", "", ""]);
-            
-            // Supervisor auxiliar (conta)
-            dadosEscala.push(["SUPERVISOR AUXILIAR:", supervisorAuxiliar, "", ""]);
-            dadosEscala.push(["", "", "", ""]);
-            
-            // Monitor
-            if (monitor) {
-                dadosEscala.push(["MONITOR:", monitor, "", ""]);
-                dadosEscala.push(["", "", "", ""]);
+            // Contar supervisor auxiliar se preenchido
+            const supervisorAuxiliar = document.getElementById('supervisorAuxiliar').value.trim();
+            if (supervisorAuxiliar) {
+                total += 1;
             }
             
-            // Cabeçalho da tabela
-            dadosEscala.push(["REGIÃO", "TRABALHADORES", "FUNÇÃO/POSTO", "OBSERVAÇÕES"]);
-            
-            // Trabalhadores
-            const trabalhadoresRows = document.querySelectorAll('#trabalhadoresContainer .row');
-            trabalhadoresRows.forEach(row => {
-                const regiao = row.querySelector('.regiao-select').value || "NÃO INFORMADO";
-                const trabalhadores = row.querySelector('input[placeholder="Digite os nomes dos trabalhadores"]').value || "";
-                const funcao = row.querySelector('input[placeholder="Função/Posto"]').value || "";
-                dadosEscala.push([regiao, trabalhadores, funcao, ""]);
+            // Contar trabalhadores
+            const workerNames = document.querySelectorAll('.worker-names');
+            workerNames.forEach(input => {
+                const names = input.value.trim();
+                if (names) {
+                    const nameCount = names.split(',').filter(name => name.trim()).length;
+                    total += nameCount;
+                }
             });
             
-            // Total
-            dadosEscala.push(["", "", "", ""]);
-            dadosEscala.push(["TOTAL DE TRABALHADORES:", total, "", ""]);
-
-            // Criar workbook
-            const wb = XLSX.utils.book_new();
-            const ws = XLSX.utils.aoa_to_sheet(dadosEscala);
-            
-            // Adicionar worksheet
-            XLSX.utils.book_append_sheet(wb, ws, "Escala");
-            
-            // Download
-            const filename = `Escala_${turno}_${data.replace(/-/g, '')}.xlsx`;
-            XLSX.writeFile(wb, filename);
+            document.getElementById('totalTrabalhadores').textContent = total;
         }
 
-        // Função para gerar texto WhatsApp
-        function gerarTextoWhatsApp() {
-            if (!document.getElementById("escalaData").value || !document.getElementById("escalaTurno").value) {
-                alert("Por favor, preencha a data e o turno da escala.");
-                return;
-            }
+        // Event listeners para atualizar total
+        document.getElementById('supervisorAuxiliar').addEventListener('input', updateTotal);
 
-            const data = formatarData(document.getElementById("escalaData").value);
-            const turno = document.getElementById("escalaTurno").value;
-            const supervisorAuxiliar = document.getElementById("escalaSupervisorAuxiliar").value;
-            const monitor = document.getElementById("escalaMonitor").value;
-            const total = document.getElementById("escalaTotalTrabalhadores").value;
+        // Salvar e carregar escala
+        function saveEscala() {
+            const escala = {
+                data: document.getElementById('dataEscala').value,
+                turno: document.getElementById('turno').value,
+                supervisorAuxiliar: document.getElementById('supervisorAuxiliar').value,
+                monitorCentral: document.getElementById('monitorCentral').value,
+                trabalhadores: []
+            };
 
-            let texto = `TURNO: ${turno}\\n`;
-            texto += `${data}\\n`;
-            texto += `TOTAL AGENTES: ${total}\\n`;
-            
-            if (monitor) {
-                texto += `CENTRAL: ${monitor.toUpperCase()}\\n`;
-            }
-            
-            if (supervisorAuxiliar) {
-                texto += `SUPERVISÃO: ${supervisorAuxiliar.toUpperCase()}\\n`;
-            }
-            
-            texto += `\\n`;
-            
-            // Adicionar trabalhadores por região
-            const trabalhadoresRows = document.querySelectorAll('#trabalhadoresContainer .row');
-            trabalhadoresRows.forEach(row => {
-                const regiao = row.querySelector('.regiao-select').value;
-                const trabalhadores = row.querySelector('input[placeholder="Digite os nomes dos trabalhadores"]').value;
-                const funcao = row.querySelector('input[placeholder="Função/Posto"]').value;
+            document.querySelectorAll('.worker-row').forEach(row => {
+                const region = row.querySelector('.worker-region').value;
+                const names = row.querySelector('.worker-names').value;
+                const func = row.querySelector('.worker-function').value;
                 
-                if (regiao && trabalhadores) {
-                    texto += `${regiao}: ${trabalhadores.toUpperCase()}`;
-                    if (funcao) {
-                        texto += ` (${funcao.toUpperCase()})`;
-                    }
-                    texto += `\\n`;
+                if (region || names || func) {
+                    escala.trabalhadores.push({region, names, func});
                 }
             });
 
-            // Mostrar em modal ou copiar para clipboard
-            const modal = window.open("", "_blank", "width=600,height=400");
-            modal.document.write(`
+            localStorage.setItem('escala_ceope', JSON.stringify(escala));
+            alert('Escala salva com sucesso!');
+        }
+
+        function loadEscala() {
+            const saved = localStorage.getItem('escala_ceope');
+            if (!saved) {
+                alert('Nenhuma escala salva encontrada');
+                return;
+            }
+
+            const escala = JSON.parse(saved);
+            
+            document.getElementById('dataEscala').value = escala.data || '';
+            document.getElementById('turno').value = escala.turno || '';
+            document.getElementById('supervisorAuxiliar').value = escala.supervisorAuxiliar || '';
+            document.getElementById('monitorCentral').value = escala.monitorCentral || '';
+
+            // Limpar trabalhadores existentes
+            const container = document.getElementById('workersContainer');
+            container.innerHTML = '';
+
+            // Carregar trabalhadores
+            escala.trabalhadores.forEach(worker => {
+                addWorkerFromData(worker.region, worker.names, worker.func);
+            });
+
+            updateTotal();
+            alert('Escala carregada com sucesso!');
+        }
+
+        // Gerar Excel
+        function generateExcel() {
+            const data = document.getElementById('dataEscala').value;
+            const turno = document.getElementById('turno').value;
+            
+            if (!data || !turno) {
+                alert('Por favor, preencha a data e o turno');
+                return;
+            }
+
+            const wb = XLSX.utils.book_new();
+            const wsData = [];
+
+            // Cabeçalho
+            wsData.push(['ESCALA DE TRABALHO - VIA LIVRE']);
+            wsData.push([`Data: ${new Date(data).toLocaleDateString('pt-BR')} - Turno: ${turno}`]);
+            wsData.push([]);
+
+            // Supervisores principais
+            wsData.push(['SUPERVISORES PRINCIPAIS (NÃO CONTAM):']);
+            wsData.push(['SUPERVISOR 1, SUPERVISOR 2']);
+            wsData.push([]);
+
+            // Supervisor auxiliar
+            const supervisorAux = document.getElementById('supervisorAuxiliar').value;
+            if (supervisorAux) {
+                wsData.push(['SUPERVISOR AUXILIAR (CONTA):']);
+                wsData.push([supervisorAux]);
+                wsData.push([]);
+            }
+
+            // Trabalhadores
+            wsData.push(['REGIÃO', 'TRABALHADORES', 'FUNÇÃO']);
+            document.querySelectorAll('.worker-row').forEach(row => {
+                const region = row.querySelector('.worker-region').value;
+                const names = row.querySelector('.worker-names').value;
+                const func = row.querySelector('.worker-function').value;
+                
+                if (region || names || func) {
+                    wsData.push([region, names, func]);
+                }
+            });
+
+            // Total
+            wsData.push([]);
+            wsData.push(['TOTAL DE TRABALHADORES:', document.getElementById('totalTrabalhadores').textContent]);
+
+            const ws = XLSX.utils.aoa_to_sheet(wsData);
+            XLSX.utils.book_append_sheet(wb, ws, 'Escala');
+            
+            const fileName = `Escala_${data.replace(/-/g, '')}_${turno}.xlsx`;
+            XLSX.writeFile(wb, fileName);
+        }
+
+        // Gerar texto WhatsApp
+        function generateWhatsApp() {
+            const data = document.getElementById('dataEscala').value;
+            const turno = document.getElementById('turno').value;
+            const total = document.getElementById('totalTrabalhadores').textContent;
+            
+            if (!data || !turno) {
+                alert('Por favor, preencha a data e o turno');
+                return;
+            }
+
+            let texto = `🚨 ESCALA DE TRABALHO - VIA LIVRE 🚨\n\n`;
+            texto += `📅 DATA: ${new Date(data).toLocaleDateString('pt-BR')}\n`;
+            texto += `🕐 TURNO: ${turno.toUpperCase()}\n`;
+            texto += `👥 TOTAL: ${total} TRABALHADORES\n\n`;
+
+            const supervisorAux = document.getElementById('supervisorAuxiliar').value;
+            if (supervisorAux) {
+                texto += `👨‍💼 SUPERVISOR: ${supervisorAux.toUpperCase()}\n\n`;
+            }
+
+            texto += `📋 DISTRIBUIÇÃO:\n`;
+            document.querySelectorAll('.worker-row').forEach(row => {
+                const region = row.querySelector('.worker-region').value;
+                const names = row.querySelector('.worker-names').value;
+                
+                if (region && names) {
+                    texto += `• ${region.toUpperCase()}: ${names.toUpperCase()}\n`;
+                }
+            });
+
+            // Mostrar em popup
+            const popup = window.open('', '_blank', 'width=500,height=600');
+            popup.document.write(`
                 <html>
-                <head><title>Texto para WhatsApp</title></head>
+                <head><title>Texto WhatsApp</title></head>
                 <body style="font-family: Arial; padding: 20px;">
-                    <h3>Texto formatado para WhatsApp:</h3>
-                    <textarea style="width: 100%; height: 300px; font-family: monospace;">${texto.replace(/\\n/g, '\\n')}</textarea>
+                    <h3>Texto para WhatsApp:</h3>
+                    <textarea style="width: 100%; height: 400px; font-family: monospace;">${texto}</textarea>
                     <br><br>
-                    <button onclick="navigator.clipboard.writeText('${texto.replace(/\\n/g, '\\n')}'); alert('Texto copiado!');">Copiar Texto</button>
+                    <button onclick="navigator.clipboard.writeText(document.querySelector('textarea').value); alert('Texto copiado!')">Copiar Texto</button>
                 </body>
                 </html>
             `);
         }
 
-        // Função para salvar escala
-        function salvarEscala() {
-            const escala = {
-                data: document.getElementById("escalaData").value,
-                turno: document.getElementById("escalaTurno").value,
-                supervisoresPrincipais: document.getElementById("escalaSupervisorPrincipal").value,
-                supervisorAuxiliar: document.getElementById("escalaSupervisorAuxiliar").value,
-                monitor: document.getElementById("escalaMonitor").value,
-                trabalhadores: []
-            };
-
-            const trabalhadoresRows = document.querySelectorAll('#trabalhadoresContainer .row');
-            trabalhadoresRows.forEach(row => {
-                escala.trabalhadores.push({
-                    regiao: row.querySelector('.regiao-select').value,
-                    nomes: row.querySelector('input[placeholder="Digite os nomes dos trabalhadores"]').value,
-                    funcao: row.querySelector('input[placeholder="Função/Posto"]').value
-                });
-            });
-
-            localStorage.setItem("escalaRascunho", JSON.stringify(escala));
-            alert("Escala salva com sucesso!");
-        }
-
-        // Função para carregar escala
-        function carregarEscala() {
-            const escala = JSON.parse(localStorage.getItem("escalaRascunho"));
-            if (!escala) {
-                alert("Nenhuma escala salva encontrada.");
+        // Pré-visualizar escala
+        function previewEscala() {
+            const data = document.getElementById('dataEscala').value;
+            const turno = document.getElementById('turno').value;
+            
+            if (!data || !turno) {
+                alert('Por favor, preencha a data e o turno');
                 return;
             }
 
-            document.getElementById("escalaData").value = escala.data || "";
-            document.getElementById("escalaTurno").value = escala.turno || "";
-            document.getElementById("escalaSupervisorPrincipal").value = escala.supervisoresPrincipais || "";
-            document.getElementById("escalaSupervisorAuxiliar").value = escala.supervisorAuxiliar || "";
-            document.getElementById("escalaMonitor").value = escala.monitor || "";
+            let preview = `<h2>Pré-visualização da Escala</h2>`;
+            preview += `<p><strong>Data:</strong> ${new Date(data).toLocaleDateString('pt-BR')}</p>`;
+            preview += `<p><strong>Turno:</strong> ${turno}</p>`;
+            preview += `<p><strong>Total:</strong> ${document.getElementById('totalTrabalhadores').textContent} trabalhadores</p>`;
+            
+            const supervisorAux = document.getElementById('supervisorAuxiliar').value;
+            if (supervisorAux) {
+                preview += `<p><strong>Supervisor Auxiliar:</strong> ${supervisorAux}</p>`;
+            }
 
-            // Limpar container
-            document.getElementById("trabalhadoresContainer").innerHTML = "";
+            preview += `<h3>Distribuição:</h3><ul>`;
+            document.querySelectorAll('.worker-row').forEach(row => {
+                const region = row.querySelector('.worker-region').value;
+                const names = row.querySelector('.worker-names').value;
+                const func = row.querySelector('.worker-function').value;
+                
+                if (region || names) {
+                    preview += `<li><strong>${region}:</strong> ${names} (${func})</li>`;
+                }
+            });
+            preview += `</ul>`;
 
-            // Adicionar trabalhadores
-            escala.trabalhadores.forEach(trabalhador => {
-                adicionarTrabalhador();
-                const lastRow = document.querySelector('#trabalhadoresContainer .row:last-child');
-                lastRow.querySelector('.regiao-select').value = trabalhador.regiao;
-                lastRow.querySelector('input[placeholder="Digite os nomes dos trabalhadores"]').value = trabalhador.nomes;
-                lastRow.querySelector('input[placeholder="Função/Posto"]').value = trabalhador.funcao;
+            const popup = window.open('', '_blank', 'width=600,height=500');
+            popup.document.write(`
+                <html>
+                <head><title>Pré-visualização</title></head>
+                <body style="font-family: Arial; padding: 20px;">
+                    ${preview}
+                </body>
+                </html>
+            `);
+        }
+
+        // Funções do Relatório Operacional (mantidas do sistema original)
+        function salvarRascunho() {
+            const relatorio = {
+                data: document.getElementById('dataRelatorio').value,
+                turno: document.getElementById('turnoRelatorio').value,
+                supervisor: document.getElementById('supervisor').value,
+                totalOperadores: document.getElementById('totalOperadores').value,
+                internos: document.getElementById('internos').value,
+                externos: document.getElementById('externos').value,
+                central: document.getElementById('central').value,
+                postosFixos: document.getElementById('postosFixos').value,
+                equipesVolantes: document.getElementById('equipesVolantes').value,
+                observacoes: document.getElementById('observacoes').value
+            };
+
+            localStorage.setItem('relatorio_ceope', JSON.stringify(relatorio));
+            alert('Rascunho salvo com sucesso!');
+        }
+
+        function carregarRascunho() {
+            const saved = localStorage.getItem('relatorio_ceope');
+            if (!saved) {
+                alert('Nenhum rascunho encontrado');
+                return;
+            }
+
+            const relatorio = JSON.parse(saved);
+            
+            Object.keys(relatorio).forEach(key => {
+                const element = document.getElementById(key === 'turno' ? 'turnoRelatorio' : key === 'data' ? 'dataRelatorio' : key);
+                if (element) {
+                    element.value = relatorio[key] || '';
+                }
             });
 
-            contarTrabalhadores();
-            alert("Escala carregada com sucesso!");
+            alert('Rascunho carregado com sucesso!');
         }
 
-        // Função para formatar data
-        function formatarData(data) {
-            const [ano, mes, dia] = data.split('-');
-            return `${dia}/${mes}/${ano}`;
+        function gerarPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const data = document.getElementById('dataRelatorio').value;
+            const turno = document.getElementById('turnoRelatorio').value;
+            
+            if (!data || !turno) {
+                alert('Por favor, preencha a data e o turno');
+                return;
+            }
+
+            // Cabeçalho
+            doc.setFontSize(16);
+            doc.text('RELATÓRIO OPERACIONAL - VIA LIVRE', 20, 20);
+            
+            doc.setFontSize(12);
+            doc.text(`Data: ${new Date(data).toLocaleDateString('pt-BR')}`, 20, 35);
+            doc.text(`Turno: ${turno}`, 20, 45);
+            
+            const supervisor = document.getElementById('supervisor').value;
+            if (supervisor) {
+                doc.text(`Supervisor: ${supervisor}`, 20, 55);
+            }
+
+            // Dados operacionais
+            let yPos = 70;
+            doc.text(`Total de Operadores: ${document.getElementById('totalOperadores').value}`, 20, yPos);
+            yPos += 10;
+            doc.text(`Internos: ${document.getElementById('internos').value}`, 20, yPos);
+            yPos += 10;
+            doc.text(`Externos: ${document.getElementById('externos').value}`, 20, yPos);
+            yPos += 20;
+
+            // Divisões
+            doc.text('DIVISÃO DAS OPERAÇÕES:', 20, yPos);
+            yPos += 15;
+
+            const central = document.getElementById('central').value;
+            if (central) {
+                doc.text('01. Central:', 20, yPos);
+                yPos += 10;
+                const centralLines = doc.splitTextToSize(central, 170);
+                doc.text(centralLines, 25, yPos);
+                yPos += centralLines.length * 5 + 10;
+            }
+
+            const postosFixos = document.getElementById('postosFixos').value;
+            if (postosFixos) {
+                doc.text('02. Postos Fixos:', 20, yPos);
+                yPos += 10;
+                const postosLines = doc.splitTextToSize(postosFixos, 170);
+                doc.text(postosLines, 25, yPos);
+                yPos += postosLines.length * 5 + 10;
+            }
+
+            const equipesVolantes = document.getElementById('equipesVolantes').value;
+            if (equipesVolantes) {
+                doc.text('03. Equipes Volantes:', 20, yPos);
+                yPos += 10;
+                const equipesLines = doc.splitTextToSize(equipesVolantes, 170);
+                doc.text(equipesLines, 25, yPos);
+                yPos += equipesLines.length * 5 + 10;
+            }
+
+            const observacoes = document.getElementById('observacoes').value;
+            if (observacoes) {
+                doc.text('Observações:', 20, yPos);
+                yPos += 10;
+                const obsLines = doc.splitTextToSize(observacoes, 170);
+                doc.text(obsLines, 25, yPos);
+            }
+
+            const fileName = `Relatorio_${data.replace(/-/g, '')}_${turno}.pdf`;
+            doc.save(fileName);
         }
 
-        // Event listeners
-        document.addEventListener("DOMContentLoaded", function() {
-            // Eventos da escala
-            document.getElementById("btnAdicionarTrabalhador").addEventListener("click", adicionarTrabalhador);
-            document.getElementById("btnSalvarEscala").addEventListener("click", salvarEscala);
-            document.getElementById("btnCarregarEscala").addEventListener("click", carregarEscala);
-            document.getElementById("btnGerarExcelEscala").addEventListener("click", gerarExcelEscala);
-            document.getElementById("btnGerarWhatsApp").addEventListener("click", gerarTextoWhatsApp);
+        function gerarTextoWhatsApp() {
+            const data = document.getElementById('dataRelatorio').value;
+            const turno = document.getElementById('turnoRelatorio').value;
+            
+            if (!data || !turno) {
+                alert('Por favor, preencha a data e o turno');
+                return;
+            }
 
-            // Eventos de contagem
-            document.getElementById("escalaSupervisorAuxiliar").addEventListener("input", contarTrabalhadores);
+            let texto = `📋 RELATÓRIO OPERACIONAL - VIA LIVRE\n\n`;
+            texto += `📅 ${new Date(data).toLocaleDateString('pt-BR')} - ${turno.toUpperCase()}\n`;
+            texto += `👥 Total: ${document.getElementById('totalOperadores').value} operadores\n`;
+            texto += `🏢 Internos: ${document.getElementById('internos').value}\n`;
+            texto += `🚗 Externos: ${document.getElementById('externos').value}\n\n`;
 
-            // Adicionar primeiro trabalhador por padrão
-            adicionarTrabalhador();
+            const central = document.getElementById('central').value;
+            if (central) {
+                texto += `🏢 CENTRAL:\n${central}\n\n`;
+            }
+
+            const postosFixos = document.getElementById('postosFixos').value;
+            if (postosFixos) {
+                texto += `🏗️ POSTOS FIXOS:\n${postosFixos}\n\n`;
+            }
+
+            const equipesVolantes = document.getElementById('equipesVolantes').value;
+            if (equipesVolantes) {
+                texto += `🚗 EQUIPES VOLANTES:\n${equipesVolantes}\n\n`;
+            }
+
+            const popup = window.open('', '_blank', 'width=500,height=600');
+            popup.document.write(`
+                <html>
+                <head><title>Texto WhatsApp</title></head>
+                <body style="font-family: Arial; padding: 20px;">
+                    <h3>Texto para WhatsApp:</h3>
+                    <textarea style="width: 100%; height: 400px; font-family: monospace;">${texto}</textarea>
+                    <br><br>
+                    <button onclick="navigator.clipboard.writeText(document.querySelector('textarea').value); alert('Texto copiado!')">Copiar Texto</button>
+                </body>
+                </html>
+            `);
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Definir data atual
+            const hoje = new Date().toISOString().split('T')[0];
+            document.getElementById('dataEscala').value = hoje;
+            document.getElementById('dataRelatorio').value = hoje;
+            
+            updateTotal();
         });
-
-        // Aqui continuaria com todo o código original do relatório operacional...
-        // [O código completo do sistema original seria inserido aqui]
     </script>
 </body>
 </html>
